@@ -11,7 +11,6 @@ document.querySelector('form').addEventListener('submit', (event) => {
     let inputStr = input.value;
     let newStr = inputStr.split(' ');
 
-
     if (newStr[0] === 'add') {
         addRecord(newStr);
     }
@@ -19,6 +18,10 @@ document.querySelector('form').addEventListener('submit', (event) => {
     if (newStr[0] === 'list') {
         let items = localStorage.getItem("storage");
         console.log(items);
+        collection.sort(function (a, b) {
+            return new Date(b.date) - new Date(a.date);
+        });
+        document.getElementById('infoField').innerHTML = JSON.stringify(collection);
     }
 
     if (newStr[0] === 'clear') {
@@ -26,46 +29,48 @@ document.querySelector('form').addEventListener('submit', (event) => {
         document.getElementById('infoField').innerHTML = JSON.stringify(collection);
     }
 
-    let rateString;
-    let sum = 0;
-
-    function getRates() {
-        $.ajax({
-            url: endpoint + '?access_key=' + access_key + '&base=' + base,
-            dataType: 'json',
-            success: function (json) {
-                let rates = json.rates;
-                for (let key in rates) {
-                    if (newStr[1] === key) {
-                        rateString = JSON.stringify(rates[key]);
-                        console.log(rateString);
-                    }
-                }
-                const finalValue = sum * rateString;
-                console.log(finalValue);
-            }
-        });
-    }
-
-    function sumAmount() {
-        for (let i = 0; i < collection.length; i++) {
-            const items = collection[i].items;
-            for (let j = 0; j < items.length; j++) {
-                sum += +items[j].amount;
-            }
-        }
-    }
-
-    function totalSpent() {
-        getRates(newStr);
-        sumAmount();
-    }
-
     if (newStr[0] === 'total') {
-        totalSpent();
+        totalSpent(newStr);
     }
 
 });
+
+
+let rateString;
+let sum = 0;
+
+function getRates(data) {
+    $.ajax({
+        url: endpoint + '?access_key=' + access_key + '&base=' + base,
+        dataType: 'json',
+        success: function (json) {
+            let rates = json.rates;
+            for (let key in rates) {
+                if (data[1] === key) {
+                    rateString = JSON.stringify(rates[key]);
+                    console.log(rateString);
+                }
+            }
+            const finalValue = sum * rateString;
+            console.log(finalValue);
+            document.getElementById('infoField').innerHTML = 'Total amount in specified currency: ' + finalValue;
+        }
+    });
+}
+
+function sumAmount() {
+    for (let i = 0; i < collection.length; i++) {
+        const items = collection[i].items;
+        for (let j = 0; j < items.length; j++) {
+            sum += +items[j].amount;
+        }
+    }
+}
+
+function totalSpent(data) {
+    getRates(data);
+    sumAmount();
+}
 
 function addRecord(data) {
     let newRecord = {
