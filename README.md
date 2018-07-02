@@ -21,7 +21,7 @@ Personal expenses management web client application (static files) that allows u
 
 𝐈𝐟 𝐲𝐨𝐮 𝐬𝐞𝐞 𝐚𝐧 𝐞𝐫𝐫𝐨𝐫: 𝐔𝐧𝐜𝐚𝐮𝐠𝐡𝐭 𝐒𝐞𝐜𝐮𝐫𝐢𝐭𝐲𝐄𝐫𝐫𝐨𝐫: 𝐅𝐚𝐢𝐥𝐞𝐝 𝐭𝐨 𝐫𝐞𝐚𝐝 𝐭𝐡𝐞 '𝐥𝐨𝐜𝐚𝐥𝐒𝐭𝐨𝐫𝐚𝐠𝐞' 𝐩𝐫𝐨𝐩𝐞𝐫𝐭𝐲 𝐟𝐫𝐨𝐦 '𝐖𝐢𝐧𝐝𝐨𝐰': 𝐀𝐜𝐜𝐞𝐬𝐬 𝐢𝐬 𝐝𝐞𝐧𝐢𝐞𝐝 𝐟𝐨𝐫 𝐭𝐡𝐢𝐬 𝐝𝐨𝐜𝐮𝐦𝐞𝐧𝐭, 𝐣𝐮𝐬𝐭 𝐫𝐞𝐚𝐝 𝐭𝐡𝐞 𝐠𝐮𝐢𝐝𝐞 𝐛𝐞𝐥𝐨𝐰.
 
-In order to sign up as a publisher you will need to enable 3rd party cookies in your browser. The guidelines below explain how to enable 3rd party cookies in most commonly used browsers:
+𝐈𝐧 𝐨𝐫𝐝𝐞𝐫 𝐭𝐨 𝐬𝐢𝐠𝐧 𝐮𝐩 𝐚𝐬 𝐚 𝐩𝐮𝐛𝐥𝐢𝐬𝐡𝐞𝐫 𝐲𝐨𝐮 𝐰𝐢𝐥𝐥 𝐧𝐞𝐞𝐝 𝐭𝐨 𝐞𝐧𝐚𝐛𝐥𝐞 𝟑𝐫𝐝 𝐩𝐚𝐫𝐭𝐲 𝐜𝐨𝐨𝐤𝐢𝐞𝐬 𝐢𝐧 𝐲𝐨𝐮𝐫 𝐛𝐫𝐨𝐰𝐬𝐞𝐫. The guidelines below explain how to enable 3rd party cookies in most commonly used browsers:
 Google Chrome (Windows & OS X)
 1. Under 'Menu' or  , select Settings
 
