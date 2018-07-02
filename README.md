@@ -1,20 +1,21 @@
 # expenses-management-web-client-application
 Personal expenses management web client application (static files) that allows users to track how much money have they spent.
 
-● add 2017-04-25 12 USD Jogurt — adds expense entry to the list of user expenses. Expenses for various dates could be added in any order.   Command accepts following parameters:
-    2017-04-25 — is the date when expense occurred
-    12 — is an amount of money spent
-    USD — the currency in which expense occurred
-    Jogurt — is the name of product purchased
+● add 2017-04-25 12 USD Jogurt — adds expense entry to the list of user expenses. Expenses for various dates could be added in any order.   
+    Command accepts following parameters:
+    2017-04-25 — is the date when expense occurred;
+    12 — is an amount of money spent;
+    USD — the currency in which expense occurred;
+    Jogurt — is the name of product purchased;
     
-● list — shows the list of all expenses sorted by date
+● list — shows the list of all expenses sorted by date;
 
 ● clear 2017-04-25 — removes all expenses for specified date, where:
   2017-04-25 — is the date for which all expenses should be removed
   
 ● total PLN — this command should take a list of exchange rates from http://fixer.io,
   calculate the total amount of money spent and present it to user in specified currency, where:
-    PLN — is the currency in which total amount of expenses should be presented
+  PLN — is the currency in which total amount of expenses should be presented
     
 𝐓𝐨 𝐫𝐮𝐧 𝐭𝐡𝐢𝐬 𝐚𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐣𝐮𝐬𝐭 𝐨𝐩𝐞𝐧 𝐟𝐢𝐥𝐞 𝐢𝐧𝐝𝐞𝐱.𝐡𝐭𝐦𝐥 𝐢𝐧 𝐲𝐨𝐮𝐫 𝐛𝐫𝐨𝐰𝐬𝐞𝐫.
 
