@@ -16,21 +16,15 @@ document.querySelector('form').addEventListener('submit', (event) => {
     }
 
     if (newStr[0] === 'list') {
-        let items = localStorage.getItem("storage");
-        console.log(items);
         collection.sort(function (a, b) {
             return new Date(b.date) - new Date(a.date);
         });
-        // debugger
         for (let i = 0; i < collection.length; i++) {
             let element = document.getElementById("infoField");
-            if( element.innerHTML !== ""){
-                element.innerHTML += "" + `<div class="infoDate">${collection[i].date}</div`;
-            }
+            element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
             const items = collection[i].items;
             for (let j = 0; j < items.length; j++) {
-                // console.log(items[j].amount, items[j].currency);
-                    element.innerHTML += `
+                element.innerHTML += `
                                             <div class="infoField">${items[j].productName} ${items[j].amount} ${items[j].currency}</div>
                                         `;
             }
@@ -45,8 +39,7 @@ document.querySelector('form').addEventListener('submit', (event) => {
             element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
             const items = collection[i].items;
             for (let j = 0; j < items.length; j++) {
-                // console.log(items[j].amount, items[j].currency);
-                    element.innerHTML += `
+                element.innerHTML += `
                                             <div class="infoField">${items[j].productName} ${items[j].amount} ${items[j].currency}</div>
                                         `;
             }
@@ -72,12 +65,10 @@ function getRates(data) {
             for (let key in rates) {
                 if (data[1] === key) {
                     rateString = JSON.stringify(rates[key]);
-                    console.log(rateString);
                 }
             }
             const finalValue = sum * rateString;
-            console.log(finalValue);
-            document.getElementById('infoField').innerHTML =+ finalValue.toFixed(2) + " " + data[1];
+            document.getElementById('infoField').innerHTML = +finalValue.toFixed(2) + " " + data[1];
         }
     });
 }
@@ -116,21 +107,19 @@ function addRecord(data) {
     if (!isExist) {
         collection.push(newRecord);
     }
-    
-let collection_serialized = JSON.stringify(collection);
-localStorage.setItem('storage', collection_serialized);
-// debugger
-for (let i = 0; i < collection.length; i++) {
-    let element = document.getElementById("infoField");
-    element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
-    const items = collection[i].items;
-    for (let j = 0; j < items.length; j++) {
-        // console.log(items[j].amount, items[j].currency);
+
+    let collection_serialized = JSON.stringify(collection);
+    localStorage.setItem('storage', collection_serialized);
+    for (let i = 0; i < collection.length; i++) {
+        let element = document.getElementById("infoField");
+        element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
+        const items = collection[i].items;
+        for (let j = 0; j < items.length; j++) {
             element.innerHTML += `
                                     <div class="infoField">${items[j].productName} ${items[j].amount} ${items[j].currency}</div>
                                 `;
+        }
     }
-}
 }
 
 function clearData(data) {
