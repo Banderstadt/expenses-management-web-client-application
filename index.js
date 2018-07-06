@@ -65,7 +65,8 @@ function getRates(data) {
             }
             const finalValue = sum * rateString;
             console.log(finalValue);
-            document.getElementById('infoField').innerHTML =+ finalValue.toFixed(2) + " " + data[1];
+            let el = document.getElementById('infoField').innerHTML =+ finalValue.toFixed(2) + " " + data[1];
+            let storageEl =  localStorage.setItem("output", el);
         }
     });
 }
@@ -104,11 +105,21 @@ function addRecord(data) {
     if (!isExist) {
         collection.push(newRecord);
     }
-
-    let collection_serialized = JSON.stringify(collection);
-    localStorage.setItem('storage', collection_serialized);
-
-    document.getElementById('infoField').innerHTML = JSON.stringify(collection);
+    
+let collection_serialized = JSON.stringify(collection);
+localStorage.setItem('storage', collection_serialized);
+// debugger
+for (let i = 0; i < collection.length; i++) {
+    let element = document.getElementById("infoField");
+    element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
+    const items = collection[i].items;
+    for (let j = 0; j < items.length; j++) {
+        // console.log(items[j].amount, items[j].currency);
+            element.innerHTML += `
+                                    <div class="infoField">${items[j].productName} ${items[j].amount} ${items[j].currency}</div>
+                                `;
+    }
+}
 }
 
 function clearData(data) {
