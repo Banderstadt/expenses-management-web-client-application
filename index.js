@@ -65,7 +65,7 @@ function getRates(data) {
             }
             const finalValue = sum * rateString;
             console.log(finalValue);
-            document.getElementById('infoField').innerHTML = 'Total amount in specified currency: ' + finalValue;
+            document.getElementById('infoField').innerHTML =+ finalValue.toFixed(2) + " " + data[1];
         }
     });
 }
