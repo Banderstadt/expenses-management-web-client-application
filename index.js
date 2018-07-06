@@ -24,14 +24,12 @@ document.querySelector('form').addEventListener('submit', (event) => {
         // debugger
         for (let i = 0; i < collection.length; i++) {
             let element = document.getElementById("infoField");
-            element.innerHTML += "" + `${collection[i].date}`;
+            element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
             const items = collection[i].items;
             for (let j = 0; j < items.length; j++) {
                 // console.log(items[j].amount, items[j].currency);
                     element.innerHTML += `
-                                            ${Array().join(0).split(0).map((item, i) => `
-                                                <div>${items[j].productName} ${items[j].amount} ${items[j].currency}
-                                            `).join('')}
+                                            <div class="infoField">${items[j].productName} ${items[j].amount} ${items[j].currency}</div>
                                         `;
             }
         }
