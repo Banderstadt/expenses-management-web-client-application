@@ -108,8 +108,8 @@ function addRecord(data) {
         collection.push(newRecord);
     }
 
-    let collection_serialized = JSON.stringify(collection);
-    localStorage.setItem('storage', collection_serialized);
+    let collectionSerialized = JSON.stringify(collection);
+    localStorage.setItem('storage', collectionSerialized);
     for (let i = 0; i < collection.length; i++) {
         let element = document.getElementById("infoField");
         element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
@@ -129,6 +129,6 @@ function clearData(data) {
             collection.splice(i, 1);
         }
     }
-    let collection_serialized = JSON.stringify(collection);
-    localStorage.setItem('storage', collection_serialized);
+    let collectionSerialized = JSON.stringify(collection);
+    localStorage.setItem('storage', collectionSerialized);
 }
