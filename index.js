@@ -24,7 +24,9 @@ document.querySelector('form').addEventListener('submit', (event) => {
         // debugger
         for (let i = 0; i < collection.length; i++) {
             let element = document.getElementById("infoField");
-            element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
+            if( element.innerHTML !== ""){
+                element.innerHTML += "" + `<div class="infoDate">${collection[i].date}</div`;
+            }
             const items = collection[i].items;
             for (let j = 0; j < items.length; j++) {
                 // console.log(items[j].amount, items[j].currency);
@@ -38,7 +40,17 @@ document.querySelector('form').addEventListener('submit', (event) => {
 
     if (newStr[0] === 'clear') {
         clearData(newStr);
-        document.getElementById('infoField').innerHTML = JSON.stringify(collection);
+        for (let i = 0; i < collection.length; i++) {
+            let element = document.getElementById("infoField");
+            element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
+            const items = collection[i].items;
+            for (let j = 0; j < items.length; j++) {
+                // console.log(items[j].amount, items[j].currency);
+                    element.innerHTML += `
+                                            <div class="infoField">${items[j].productName} ${items[j].amount} ${items[j].currency}</div>
+                                        `;
+            }
+        }
     }
 
     if (newStr[0] === 'total') {
@@ -65,8 +77,7 @@ function getRates(data) {
             }
             const finalValue = sum * rateString;
             console.log(finalValue);
-            let el = document.getElementById('infoField').innerHTML =+ finalValue.toFixed(2) + " " + data[1];
-            let storageEl =  localStorage.setItem("output", el);
+            document.getElementById('infoField').innerHTML =+ finalValue.toFixed(2) + " " + data[1];
         }
     });
 }
