@@ -67,6 +67,7 @@ function getRates(data) {
                     rateString = JSON.stringify(rates[key]);
                 }
             }
+            console.log(rateString);
             const finalValue = sum * rateString;
             document.getElementById('infoField').innerHTML = +finalValue.toFixed(2) + " " + data[1];
         }
@@ -77,7 +78,7 @@ function sumAmount() {
     for (let i = 0; i < collection.length; i++) {
         const items = collection[i].items;
         for (let j = 0; j < items.length; j++) {
-            sum += +items[j].amount;
+            sum = +items[j].amount;
         }
     }
 }
