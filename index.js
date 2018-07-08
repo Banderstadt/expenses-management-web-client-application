@@ -120,7 +120,6 @@ function addRecord(data) {
         element.innerHTML = "";
     }
     for (let i = 0; i < collection.length; i++) {
-        let element = document.getElementById("infoField");
         element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
         const items = collection[i].items;
         for (let j = 0; j < items.length; j++) {
