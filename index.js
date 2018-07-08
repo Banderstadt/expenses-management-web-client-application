@@ -1,7 +1,7 @@
 let input = document.getElementById('commandField');
 let storage = JSON.parse(localStorage.getItem("storage"));
-const collection = storage ? storage : [];
 let element = document.getElementById("infoField");
+const collection = storage ? storage : [];
 
 const access_key = '05296a8368a96ad97a06162848c34962';
 const endpoint = 'http://data.fixer.io/api/latest';
@@ -32,7 +32,6 @@ document.querySelector('form').addEventListener('submit', (event) => {
                                         `;
             }
         }
-
     }
 
     if (newStr[0] === 'clear') {
@@ -54,9 +53,7 @@ document.querySelector('form').addEventListener('submit', (event) => {
     if (newStr[0] === 'total') {
         totalSpent(newStr);
     }
-
 });
-
 
 let rateString;
 let sum = 0;
@@ -72,7 +69,6 @@ function getRates(data) {
                     rateString = JSON.stringify(rates[key]);
                 }
             }
-            console.log(rateString);
             const finalValue = sum * rateString;
             document.getElementById('infoField').innerHTML = +finalValue.toFixed(2) + " " + data[1];
         }
@@ -113,7 +109,6 @@ function addRecord(data) {
     if (!isExist) {
         collection.push(newRecord);
     }
-
     let collectionSerialized = JSON.stringify(collection);
     localStorage.setItem('storage', collectionSerialized);
     if (element.innerHTML) {
