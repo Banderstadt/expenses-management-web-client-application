@@ -1,6 +1,7 @@
 let input = document.getElementById('commandField');
 let storage = JSON.parse(localStorage.getItem("storage"));
 const collection = storage ? storage : [];
+let element = document.getElementById("infoField");
 
 const access_key = '05296a8368a96ad97a06162848c34962';
 const endpoint = 'http://data.fixer.io/api/latest';
@@ -19,8 +20,10 @@ document.querySelector('form').addEventListener('submit', (event) => {
         collection.sort(function (a, b) {
             return new Date(b.date) - new Date(a.date);
         });
+        if (element.innerHTML) {
+            element.innerHTML = "";
+        }
         for (let i = 0; i < collection.length; i++) {
-            let element = document.getElementById("infoField");
             element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
             const items = collection[i].items;
             for (let j = 0; j < items.length; j++) {
@@ -34,8 +37,10 @@ document.querySelector('form').addEventListener('submit', (event) => {
 
     if (newStr[0] === 'clear') {
         clearData(newStr);
+        if (element.innerHTML) {
+            element.innerHTML = "";
+        }
         for (let i = 0; i < collection.length; i++) {
-            let element = document.getElementById("infoField");
             element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
             const items = collection[i].items;
             for (let j = 0; j < items.length; j++) {
@@ -111,6 +116,9 @@ function addRecord(data) {
 
     let collectionSerialized = JSON.stringify(collection);
     localStorage.setItem('storage', collectionSerialized);
+    if (element.innerHTML) {
+        element.innerHTML = "";
+    }
     for (let i = 0; i < collection.length; i++) {
         let element = document.getElementById("infoField");
         element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
