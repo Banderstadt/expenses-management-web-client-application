@@ -56,7 +56,7 @@ document.querySelector('form').addEventListener('submit', (event) => {
 });
 
 let rateString;
-let sum = 0;
+let sum;
 
 function getRates(data) {
     $.ajax({
@@ -76,10 +76,11 @@ function getRates(data) {
 }
 
 function sumAmount() {
+    sum = 0;
     for (let i = 0; i < collection.length; i++) {
         const items = collection[i].items;
         for (let j = 0; j < items.length; j++) {
-            sum = +items[j].amount;
+            sum += +items[j].amount;
         }
     }
 }
