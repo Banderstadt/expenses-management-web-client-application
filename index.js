@@ -58,6 +58,18 @@ document.querySelector('form').addEventListener('submit', (event) => {
 let rateString;
 let sum;
 
+window.onload = function(){
+    for (let i = 0; i < collection.length; i++) {
+        element.innerHTML += `<div class="infoDate">${collection[i].date}</div`;
+        const items = collection[i].items;
+        for (let j = 0; j < items.length; j++) {
+            element.innerHTML += `
+                                    <div class="infoField">${items[j].productName} ${items[j].amount} ${items[j].currency}</div>
+                                `;
+        }
+    }
+};
+
 function getRates(data) {
     $.ajax({
         url: endpoint + '?access_key=' + access_key + '&base=' + base,
